@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" pages="3">
+<mxfile host="app.diagrams.net" pages="5">
   <diagram name="第 1 页" id="R7DZvfzJKSP3aonSsOBX">
     <mxGraphModel dx="1542" dy="962" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -103,7 +103,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="xftWlQRkn_NN7xDxSVwI" name="第 3 页">
-    <mxGraphModel dx="2342" dy="1762" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1526" dy="1674" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -187,6 +187,124 @@
             <mxPoint x="-57" y="-264" as="sourcePoint" />
             <mxPoint x="-7" y="-314" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="POJda3-9BVp4c6GJafvh" name="第 4 页">
+    <mxGraphModel dx="1542" dy="910" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="qHl0axj70vwx8kdH1h2g-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="以太网帧（明文）" vertex="1">
+          <mxGeometry height="50" width="160" x="560" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="qHl0axj70vwx8kdH1h2g-2" edge="1" parent="1" source="qHl0axj70vwx8kdH1h2g-1" style="endArrow=classic;html=1;" target="qHl0axj70vwx8kdH1h2g-3" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qHl0axj70vwx8kdH1h2g-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="① 分类&#xa;匹配规则 (EtherType / VLAN ID / DA / SA)&#xa;决策：Protect / Bypass / Drop" vertex="1">
+          <mxGeometry height="70" width="240" x="520" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="qHl0axj70vwx8kdH1h2g-4" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="Protect?" vertex="1">
+          <mxGeometry height="80" width="130" x="575" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="qHl0axj70vwx8kdH1h2g-5" edge="1" parent="1" source="qHl0axj70vwx8kdH1h2g-3" style="endArrow=classic;html=1;" target="qHl0axj70vwx8kdH1h2g-4" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qHl0axj70vwx8kdH1h2g-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="② SA 查找&#xa;查出 SAK、SCI、Next-PN" vertex="1">
+          <mxGeometry height="60" width="210" x="535" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="qHl0axj70vwx8kdH1h2g-7" edge="1" parent="1" source="qHl0axj70vwx8kdH1h2g-4" style="endArrow=classic;html=1;" target="qHl0axj70vwx8kdH1h2g-6" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qHl0axj70vwx8kdH1h2g-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="③ SecTag 插入&#xa;在帧头（源地址后）插入 16 字节 SecTag (SCI/AN/PN)" vertex="1">
+          <mxGeometry height="60" width="260" x="510" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="qHl0axj70vwx8kdH1h2g-9" edge="1" parent="1" source="qHl0axj70vwx8kdH1h2g-6" style="endArrow=classic;html=1;" target="qHl0axj70vwx8kdH1h2g-8" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qHl0axj70vwx8kdH1h2g-10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="④ AES-GCM 变换&#xa;认证：对整帧计算 GHASH → ICV&#xa;加密（可选）：对 Payload 执行 AES-CTR 加密" vertex="1">
+          <mxGeometry height="70" width="280" x="500" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="qHl0axj70vwx8kdH1h2g-11" edge="1" parent="1" source="qHl0axj70vwx8kdH1h2g-8" style="endArrow=classic;html=1;" target="qHl0axj70vwx8kdH1h2g-10" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qHl0axj70vwx8kdH1h2g-12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="⑤ ICV 附加&#xa;帧尾追加 16 字节 ICV" vertex="1">
+          <mxGeometry height="60" width="210" x="535" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="qHl0axj70vwx8kdH1h2g-13" edge="1" parent="1" source="qHl0axj70vwx8kdH1h2g-10" style="endArrow=classic;html=1;" target="qHl0axj70vwx8kdH1h2g-12" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qHl0axj70vwx8kdH1h2g-14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="加密后的 MACsec 帧 → PCS → SerDes → 网络" vertex="1">
+          <mxGeometry height="50" width="260" x="510" y="910" as="geometry" />
+        </mxCell>
+        <mxCell id="qHl0axj70vwx8kdH1h2g-15" edge="1" parent="1" source="qHl0axj70vwx8kdH1h2g-12" style="endArrow=classic;html=1;" target="qHl0axj70vwx8kdH1h2g-14" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qHl0axj70vwx8kdH1h2g-16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Bypass / Drop" vertex="1">
+          <mxGeometry height="50" width="100" x="760" y="385" as="geometry" />
+        </mxCell>
+        <mxCell id="qHl0axj70vwx8kdH1h2g-17" edge="1" parent="1" source="qHl0axj70vwx8kdH1h2g-4" style="endArrow=classic;html=1;" target="qHl0axj70vwx8kdH1h2g-16" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="wTCaBacl1eutCuc2BI5m" name="第 5 页">
+    <mxGraphModel dx="1285" dy="758" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="wMSWEmv9TF4jm1NMy7Fu-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="加密后的 MACsec 帧（来自网络）" vertex="1">
+          <mxGeometry height="50" width="200" x="314" y="468" as="geometry" />
+        </mxCell>
+        <mxCell id="wMSWEmv9TF4jm1NMy7Fu-2" edge="1" parent="1" source="wMSWEmv9TF4jm1NMy7Fu-1" style="endArrow=classic;html=1;" target="wMSWEmv9TF4jm1NMy7Fu-3" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wMSWEmv9TF4jm1NMy7Fu-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="① 解析与分类&#xa;识别 SecTag，提取 SCI、AN、PN" vertex="1">
+          <mxGeometry height="60" width="240" x="294" y="558" as="geometry" />
+        </mxCell>
+        <mxCell id="wMSWEmv9TF4jm1NMy7Fu-4" edge="1" parent="1" source="wMSWEmv9TF4jm1NMy7Fu-3" style="endArrow=classic;html=1;" target="wMSWEmv9TF4jm1NMy7Fu-5" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wMSWEmv9TF4jm1NMy7Fu-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="② SA 匹配&#xa;{SCI, AN} → RX SA Table → 对应 SAK" vertex="1">
+          <mxGeometry height="60" width="240" x="294" y="658" as="geometry" />
+        </mxCell>
+        <mxCell id="wMSWEmv9TF4jm1NMy7Fu-6" edge="1" parent="1" source="wMSWEmv9TF4jm1NMy7Fu-5" style="endArrow=classic;html=1;" target="wMSWEmv9TF4jm1NMy7Fu-7" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wMSWEmv9TF4jm1NMy7Fu-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="③ 重放保护&#xa;检查 PN 是否在重放窗口内&#xa;PN &lt; MaxPN - Window → 重放攻击、丢弃" vertex="1">
+          <mxGeometry height="70" width="280" x="274" y="758" as="geometry" />
+        </mxCell>
+        <mxCell id="wMSWEmv9TF4jm1NMy7Fu-8" edge="1" parent="1" source="wMSWEmv9TF4jm1NMy7Fu-7" style="endArrow=classic;html=1;" target="wMSWEmv9TF4jm1NMy7Fu-9" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wMSWEmv9TF4jm1NMy7Fu-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="④ ICV 验证 + 解密&#xa;AES-GCM 认证：ICV 失败 → 丢弃并告警&#xa;解密：恢复明文 Payload" vertex="1">
+          <mxGeometry height="70" width="300" x="264" y="868" as="geometry" />
+        </mxCell>
+        <mxCell id="wMSWEmv9TF4jm1NMy7Fu-10" edge="1" parent="1" source="wMSWEmv9TF4jm1NMy7Fu-9" style="endArrow=classic;html=1;" target="wMSWEmv9TF4jm1NMy7Fu-11" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wMSWEmv9TF4jm1NMy7Fu-11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="⑤ SecTag + ICV 剥离&#xa;还原为标准以太网帧 → 上送 MAC → MTL" vertex="1">
+          <mxGeometry height="60" width="280" x="274" y="978" as="geometry" />
+        </mxCell>
+        <mxCell id="wMSWEmv9TF4jm1NMy7Fu-12" edge="1" parent="1" source="wMSWEmv9TF4jm1NMy7Fu-11" style="endArrow=classic;html=1;" target="wMSWEmv9TF4jm1NMy7Fu-13" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wMSWEmv9TF4jm1NMy7Fu-13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="标准以太网帧" vertex="1">
+          <mxGeometry height="50" width="160" x="334" y="1078" as="geometry" />
+        </mxCell>
+        <mxCell id="wMSWEmv9TF4jm1NMy7Fu-14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="丢弃并告警" vertex="1">
+          <mxGeometry height="50" width="100" x="614" y="878" as="geometry" />
+        </mxCell>
+        <mxCell id="wMSWEmv9TF4jm1NMy7Fu-15" edge="1" parent="1" source="wMSWEmv9TF4jm1NMy7Fu-9" style="endArrow=classic;html=1;edgeStyle=orthogonalEdgeStyle;" target="wMSWEmv9TF4jm1NMy7Fu-14" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wMSWEmv9TF4jm1NMy7Fu-16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="丢弃" vertex="1">
+          <mxGeometry height="40" width="80" x="614" y="768" as="geometry" />
+        </mxCell>
+        <mxCell id="wMSWEmv9TF4jm1NMy7Fu-17" edge="1" parent="1" source="wMSWEmv9TF4jm1NMy7Fu-7" style="endArrow=classic;html=1;edgeStyle=orthogonalEdgeStyle;" target="wMSWEmv9TF4jm1NMy7Fu-16" value="">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
