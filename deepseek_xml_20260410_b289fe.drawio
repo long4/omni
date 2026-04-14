@@ -155,11 +155,8 @@
         <mxCell id="IcdBz9LUTz3MVLNNrhhm-58" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1" value="MTL TX 调度层" vertex="1">
           <mxGeometry height="120" width="160" x="280" y="1010" as="geometry" />
         </mxCell>
-        <mxCell id="IcdBz9LUTz3MVLNNrhhm-59" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10" value="CBS (802.1Qav)&lt;br&gt;信用整形" vertex="1">
-          <mxGeometry height="40" width="60" x="295" y="1030" as="geometry" />
-        </mxCell>
         <mxCell id="IcdBz9LUTz3MVLNNrhhm-60" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10" value="EST (802.1Qbv)&lt;br&gt;时间门控 GCL" vertex="1">
-          <mxGeometry height="30" width="70" x="360" y="1035" as="geometry" />
+          <mxGeometry height="30" width="70" x="360" y="1025" as="geometry" />
         </mxCell>
         <mxCell id="IcdBz9LUTz3MVLNNrhhm-61" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10" value="TBS (ETF)&lt;br&gt;精确 LaunchTime" vertex="1">
           <mxGeometry height="40" width="130" x="295" y="1080" as="geometry" />
@@ -280,14 +277,14 @@
             <mxPoint x="990" y="1035" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="IcdBz9LUTz3MVLNNrhhm-94" edge="1" parent="1" source="IcdBz9LUTz3MVLNNrhhm-74" style="endArrow=classic;html=1;dashed=1;strokeColor=#b85450;strokeWidth=1.5;fontSize=9;" target="IcdBz9LUTz3MVLNNrhhm-73" value="TX时间戳">
-          <mxGeometry relative="1" as="geometry">
+        <mxCell id="IcdBz9LUTz3MVLNNrhhm-94" edge="1" parent="1" style="endArrow=classic;html=1;dashed=1;strokeColor=#b85450;strokeWidth=1.5;fontSize=9;" value="TX时间戳">
+          <mxGeometry relative="1" x="-0.0259" y="20" as="geometry">
+            <mxPoint as="offset" />
             <Array as="points">
-              <mxPoint x="240" y="1050" />
-              <mxPoint x="340" y="1040" />
+              <mxPoint x="240" y="1053.13" />
             </Array>
-            <mxPoint x="240" y="1340" as="sourcePoint" />
-            <mxPoint x="560" y="1050" as="targetPoint" />
+            <mxPoint x="290" y="1046.88" as="sourcePoint" />
+            <mxPoint x="560" y="1053.13" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="IcdBz9LUTz3MVLNNrhhm-95" edge="1" parent="1" source="IcdBz9LUTz3MVLNNrhhm-75" style="endArrow=classic;html=1;dashed=1;strokeColor=#b85450;strokeWidth=1.5;fontSize=9;" target="IcdBz9LUTz3MVLNNrhhm-73" value="RX时间戳">
@@ -298,6 +295,9 @@
             <mxPoint x="1140" y="1190" as="sourcePoint" />
             <mxPoint x="800" y="1050" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="xrtgFuj4VSOpTaNsBe51-1" edge="1" parent="1" source="IcdBz9LUTz3MVLNNrhhm-96" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="IcdBz9LUTz3MVLNNrhhm-61" value="">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="IcdBz9LUTz3MVLNNrhhm-96" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontColor=#999999;" value="CBS 不依赖绝对时间" vertex="1">
           <mxGeometry height="20" width="100" x="290" y="985" as="geometry" />
@@ -316,6 +316,31 @@
         </mxCell>
         <mxCell id="IcdBz9LUTz3MVLNNrhhm-102" parent="1" style="line;html=1;strokeWidth=3;strokeColor=#333333;" value="MACsec 加密流" vertex="1">
           <mxGeometry height="10" width="30" x="870" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="xrtgFuj4VSOpTaNsBe51-2" edge="1" parent="1" source="IcdBz9LUTz3MVLNNrhhm-74" style="endArrow=classic;html=1;dashed=1;strokeColor=#b85450;strokeWidth=1.5;fontSize=9;" target="IcdBz9LUTz3MVLNNrhhm-59" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+            <mxPoint x="240" y="1330" as="sourcePoint" />
+            <mxPoint x="560" y="1046" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IcdBz9LUTz3MVLNNrhhm-59" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10" value="CBS (802.1Qav)&lt;br&gt;信用整形" vertex="1">
+          <mxGeometry height="40" width="60" x="290" y="1020" as="geometry" />
+        </mxCell>
+        <mxCell id="xrtgFuj4VSOpTaNsBe51-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 8px;&quot;&gt;Q0 ──[CBS]──[EST门]──[TBS]──►&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;Q1 ──[CBS]──[EST门]──[TBS]──►&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;....&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="160" x="70" y="1050" as="geometry" />
+        </mxCell>
+        <mxCell id="xrtgFuj4VSOpTaNsBe51-4" edge="1" parent="1" source="IcdBz9LUTz3MVLNNrhhm-58" style="endArrow=classic;html=1;rounded=0;exitX=0.01;exitY=0.558;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="xrtgFuj4VSOpTaNsBe51-3" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="500" y="990" as="sourcePoint" />
+            <mxPoint x="660" y="990" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xrtgFuj4VSOpTaNsBe51-5" connectable="0" parent="xrtgFuj4VSOpTaNsBe51-4" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" value="Label" vertex="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xrtgFuj4VSOpTaNsBe51-6" connectable="0" parent="xrtgFuj4VSOpTaNsBe51-4" style="edgeLabel;resizable=0;html=1;;align=left;verticalAlign=bottom;" value="Source" vertex="1">
+          <mxGeometry relative="1" x="-1" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
